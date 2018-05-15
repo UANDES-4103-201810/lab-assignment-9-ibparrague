@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :actors
   resources :directors
 
+
+  root "persons#new"
   get "/persons/new" , to: "persons#new"
   post "/persons/create", to: "persons#create"
 

@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20180515170426) do
   end
 
   create_table "directors", force: :cascade do |t|
-    t.string "fist_name"
+    t.string "first_name"
     t.string "last_name"
     t.date "birth_date"
     t.string "description"
