@@ -1,0 +1,20 @@
+<%= form_tag({controller: "persons",action:"create"},method: :post) do %>
+
+  <%= label_tag("name") %>
+  <%= text_field_tag(:first_name) %>
+  <%= label_tag("last") %>
+  <%= text_field_tag(:last_name) %>
+  <%= label_tag("fecha nacimiento") %>
+  <%= date_field(:birth_date,:birth_date) %>
+  <%= label_tag("descripcion") %>
+  <%= text_field_tag(:description) %>
+
+  <%= label_tag("Role") %>
+  <%= label_tag("Actor") %>
+  <%= radio_button_tag(:type,"Actor") %>
+  <%= label_tag("Director") %>
+  <%= radio_button_tag(:type,"Director") %>
+
+  <%= label_tag("") %>
+  <%= submit_tag("Accept") %>
+<%end%>
