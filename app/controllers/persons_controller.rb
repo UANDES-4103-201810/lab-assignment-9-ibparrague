@@ -2,7 +2,16 @@ class PersonsController < ApplicationController
   def new
   end
 
+
   def index
+    if (params[:q] == "actors")
+      @actor = Actor.all
+      redirect_to "/actors"
+    end
+    if (params[:q] == "directors")
+      @director = Director.all
+      redirect_to "/directors"
+    end
   end
 
   def create

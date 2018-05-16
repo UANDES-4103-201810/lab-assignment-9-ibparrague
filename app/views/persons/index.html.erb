@@ -1,2 +1,12 @@
-<h1>Persons#index</h1>
-<p>Find me in app/views/persons/index.html.erb</p>
+<h1>Persons</h1>
+
+<%= form_tag({controller: "persons",action:"index"},method: :get) do %>
+<%= label_tag("Role") %>
+<%= label_tag("Actor") %>
+<%= radio_button_tag(:q,"actors") %>
+<%= label_tag("Director") %>
+<%= radio_button_tag(:q,"directors") %>
+
+<%= label_tag("") %>
+<%= submit_tag("Accept") %>
+<%end%>
