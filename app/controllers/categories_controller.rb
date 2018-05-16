@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
 
   # POST /categories
   # POST /categories.json
-  def create
+  def create_default
     @category = Category.new(category_params)
 
     respond_to do |format|
@@ -35,6 +35,12 @@ class CategoriesController < ApplicationController
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def create
+    @category = Category.new(category_params)
+    @category.save
+    redirect_to @category
   end
 
   # PATCH/PUT /categories/1

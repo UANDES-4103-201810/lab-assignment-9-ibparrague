@@ -1,0 +1,24 @@
+<%= form_tag({controller: "movies",action:"create"},method: :post) do %>
+
+  <%= label_tag("title") %>
+  <%= text_field(:movie,:title) %>
+  <%= label_tag("description") %>
+  <%= text_field(:movie,:description) %>
+  <%= label_tag("duration") %>
+  <%= number_field(:movie, :duration) %>
+  <%= label_tag("release date") %>
+  <%= date_field(:movie, :release_date) %>
+  <%= label_tag("director") %>
+  <%= collection_select(:movie, :director_id_id, Director.all, :id, :director_name) %>
+  <%= label_tag("adress:") %>
+    <%= label_tag("street") %>
+    <%= text_field(:address, :street) %>
+    <%= label_tag("apartment") %>
+    <%= check_box(:address, :apartment) %>
+    <%= label_tag("description") %>
+    <%= text_field(:address, :description) %>
+    <%= label_tag("zipcode") %>
+    <%= text_field(:address, :zipcode) %>
+  <%= label_tag("") %>
+  <%= submit_tag("Accept") %>
+<%end%>

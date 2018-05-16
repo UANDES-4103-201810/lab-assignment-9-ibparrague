@@ -1,0 +1,10 @@
+<%= form_tag({controller: "categories",action:"create"},method: :post) do %>
+
+  <%= label_tag("name") %>
+  <%= text_field(:category,:name) %>
+  <%= label_tag("description") %>
+  <%= text_field(:category,:description) %>
+
+  <%= label_tag("") %>
+  <%= submit_tag("Accept") %>
+<%end%>

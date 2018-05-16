@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
 
   # POST /movies
   # POST /movies.json
-  def create
+  def create_default
     @movie = Movie.new(movie_params)
 
     respond_to do |format|
@@ -35,6 +35,16 @@ class MoviesController < ApplicationController
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+
+  def create
+    @address = Address.new(address_params)
+    @address.save
+    params[:movie][:address_id] = @address
+    @movie = Movie.new(movie_params)
+    @movie.save
+    redirect_to @movie
   end
 
   # PATCH/PUT /movies/1
@@ -69,6 +79,10 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :description, :duration, :director_id_id, :release_date, :address_id_id)
+      params.require(:movie).permit(:title, :description, :duration, :director_id, :release_date, :address_id)
+    end
+
+    def address_params
+      params.require(:address).permit(:street, :apartment, :description, :zipcode)
     end
 end
